@@ -185,7 +185,7 @@ Maze_ThirdQuadrant::Maze_ThirdQuadrant(sf::Vector2f size) {
 
     // creates room for maze section boss
     this->br_coords = Vector2f(-18.0f * scale, 9.0f * scale);
-    CAILAS2_boss_room = new Maze_BossRoom(&brickwall_big, size, br_coords, true, true);
+    CAILAS2_boss_room = new Maze_BossRoom(&brickwall_big, size, br_coords, false, false);
 }
 
 Maze_ThirdQuadrant::~Maze_ThirdQuadrant() { /* empty */ }
