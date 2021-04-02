@@ -166,7 +166,7 @@ Maze_FourthQuadrant::Maze_FourthQuadrant(sf::Vector2f size) {
     CAILAS3_de6 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-23.0f * scale, -11.0f * scale), false, false);
     CAILAS3_de7 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-18.0f * scale, -11.0f * scale), true, true);
     CAILAS3_de8 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-14.0f * scale, -6.0f * scale), true, true);
-    CAILAS3_de9 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-15.0f * scale, -1.0f * scale), true, true);
+    CAILAS3_de9 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-15.0f * scale, -2.0f * scale), true, true);
     CAILAS3_de10 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-16.0f * scale, 1.0f * scale), false, false);
     CAILAS3_de11 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-26.0f * scale, 1.0f * scale), true, false);
 

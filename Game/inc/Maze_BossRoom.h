@@ -63,7 +63,7 @@ Maze_BossRoom::Maze_BossRoom(sf::Texture* texture, sf::Vector2f size, sf::Vector
     comp3->shiftWallComponent(2.0f, -2.0f);
     comp4->shiftWallComponent(2.0f, 2.0f);
 
-    // entrance on the left side
+    // entrance on the *right side
     if (facePos == true && horiz == true) {
         // need another horizontal strip
         comp7 = new Wall_Strip(texture, size, position, true);

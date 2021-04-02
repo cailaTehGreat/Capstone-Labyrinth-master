@@ -174,7 +174,7 @@ Maze_ThirdQuadrant::Maze_ThirdQuadrant(sf::Vector2f size) {
     CAILAS2_de7 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-13.0f * scale, 28.0f * scale), false, true);
     CAILAS2_de8 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-11.0f * scale, 31.0f * scale), false, true);
     CAILAS2_de9 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(-9.0f * scale, 28.0f * scale), false, true);
-    CAILAS2_de10 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(4.0f * scale, 26.0f * scale), true, false);
+    CAILAS2_de10 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(3.0f * scale, 26.0f * scale), true, false);
 
     // T-junction intersections
     CAILAS2_tj1 = new Maze_TJunction(&brickwall_big, size, Vector2f(-18.0f * scale, 5.0f * scale), true, true);

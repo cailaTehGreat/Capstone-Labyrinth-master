@@ -141,7 +141,7 @@ Game_Engine::Game_Engine(bool inCheatMode) {
     if (this->inCheatMode)
         zoomOutFactor = 10;
     else
-        zoomOutFactor = 1;
+        zoomOutFactor = 17;
 
     // initializes
     initVariables();

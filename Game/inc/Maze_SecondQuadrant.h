@@ -56,6 +56,7 @@ protected:
     Maze_Component* CAILAS_de9;
     Maze_Component* CAILAS_de10;
     Maze_Component* CAILAS_de11;
+    Maze_Component* CAILAS_de12;
     
     // t-junction
     Maze_Component* CAILAS_tj1;
@@ -128,6 +129,7 @@ Maze_SecondQuadrant::Maze_SecondQuadrant(sf::Vector2f size) {
     this->CAILAS_de9 = nullptr;
     this->CAILAS_de10 = nullptr;
     this->CAILAS_de11 = nullptr;
+    this->CAILAS_de12 = nullptr;
 
     this->CAILAS_tj1 = nullptr;
     this->CAILAS_tj2 = nullptr;
@@ -175,6 +177,7 @@ Maze_SecondQuadrant::Maze_SecondQuadrant(sf::Vector2f size) {
     CAILAS_de9 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(14.0f * scale, 26.0f * scale), false, true);
     CAILAS_de10 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(16.0f * scale, 26.0f * scale), false, true);
     CAILAS_de11 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(9.0f * scale, 24.0f * scale), false, true);
+    CAILAS_de12 = new Maze_DeadEnd(&brickwall_big, size, Vector2f(18.0f * scale, 24.0f * scale), true, false);
 
     // T-junction intersections
     CAILAS_tj1 = new Maze_TJunction(&brickwall_big, size, Vector2f(6.0f * scale, 7.0f * scale), true, false);
@@ -224,6 +227,7 @@ void Maze_SecondQuadrant::MazeContactUpdate_Player(Player* character, float push
     CAILAS_de9->ColliderCheck(character->GetCollider(), push);
     CAILAS_de10->ColliderCheck(character->GetCollider(), push);
     CAILAS_de11->ColliderCheck(character->GetCollider(), push);
+    CAILAS_de12->ColliderCheck(character->GetCollider(), push);
 
 
     CAILAS_tj1->ColliderCheck(character->GetCollider(), push);
@@ -267,6 +271,7 @@ void Maze_SecondQuadrant::MazeContactUpdate_Enemies(Enemy_Spawner* enemies, floa
     enemies->UpdateWallCollisions(CAILAS_de9, push);
     enemies->UpdateWallCollisions(CAILAS_de10, push);
     enemies->UpdateWallCollisions(CAILAS_de11, push);
+    enemies->UpdateWallCollisions(CAILAS_de12, push);
 
 
     enemies->UpdateWallCollisions(CAILAS_tj1, push);
@@ -310,6 +315,7 @@ void Maze_SecondQuadrant::Draw(sf::RenderWindow& window) {
     CAILAS_de9->Draw(window);
     CAILAS_de10->Draw(window);
     CAILAS_de11->Draw(window);
+    CAILAS_de12->Draw(window);
 
     CAILAS_tj1->Draw(window);
     CAILAS_tj2->Draw(window);
@@ -348,16 +354,17 @@ bool Maze_SecondQuadrant::ColliderCheck(Collider other, float push) {
     bool piece22_cond = CAILAS_de9->ColliderCheck(other, push);
     bool piece23_cond = CAILAS_de10->ColliderCheck(other, push);
     bool piece24_cond = CAILAS_de11->ColliderCheck(other, push);
+    bool piece25_cond = CAILAS_de12->ColliderCheck(other, push);
 
-    bool piece25_cond = CAILAS_hw1->ColliderCheck(other, push);
-    bool piece26_cond = CAILAS_hw2->ColliderCheck(other, push);
-    bool piece27_cond = CAILAS_hw3->ColliderCheck(other, push);
-    bool piece28_cond = CAILAS_hw4->ColliderCheck(other, push);
-    bool piece29_cond = CAILAS_hw5->ColliderCheck(other, push);
-    bool piece30_cond = CAILAS_hw6->ColliderCheck(other, push);
-    bool piece31_cond = CAILAS_hw7->ColliderCheck(other, push);
+    bool piece26_cond = CAILAS_hw1->ColliderCheck(other, push);
+    bool piece27_cond = CAILAS_hw2->ColliderCheck(other, push);
+    bool piece28_cond = CAILAS_hw3->ColliderCheck(other, push);
+    bool piece29_cond = CAILAS_hw4->ColliderCheck(other, push);
+    bool piece30_cond = CAILAS_hw5->ColliderCheck(other, push);
+    bool piece31_cond = CAILAS_hw6->ColliderCheck(other, push);
+    bool piece32_cond = CAILAS_hw7->ColliderCheck(other, push);
 
-    bool piece32_cond = CAILAS_boss_room->ColliderCheck(other, push);
+    bool piece33_cond = CAILAS_boss_room->ColliderCheck(other, push);
 
     if (piece1_cond ||
         piece2_cond ||
@@ -390,7 +397,8 @@ bool Maze_SecondQuadrant::ColliderCheck(Collider other, float push) {
         piece29_cond || 
         piece30_cond ||
         piece31_cond ||
-        piece32_cond)
+        piece32_cond ||
+        piece33_cond)
         return true;
 
     return false;
@@ -422,6 +430,7 @@ bool Maze_SecondQuadrant::inMazeWalls(Vector2f coords) {
         CAILAS_de9->inWallStructure(coords) ||
         CAILAS_de10->inWallStructure(coords) ||
         CAILAS_de11->inWallStructure(coords) ||
+        CAILAS_de12->inWallStructure(coords) ||
         CAILAS_hw1->inWallStructure(coords) || 
         CAILAS_hw2->inWallStructure(coords) || 
         CAILAS_hw3->inWallStructure(coords) || 
